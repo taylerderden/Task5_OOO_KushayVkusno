@@ -1,0 +1,36 @@
+﻿<Window x:Class="Task5_OOO_KushayVkusno.WindowAddDish"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task5_OOO_KushayVkusno"
+        mc:Ignorable="d"
+        Title="WindowAddDish" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="281*"/>
+        </Grid.ColumnDefinitions>
+        <UniformGrid Grid.Column="1" Rows="4">
+            <TextBox Text="{Binding DishName}" Margin="0,73,0,-22"/>
+            <TextBox Text="{Binding DishPrice}" Margin="0,51,0,0"/>
+            <ComboBox x:Name="cbCategory" SelectedItem="{Binding CategoryIdCategoryNavigation}" DisplayMemberPath="CategoryName" SelectionChanged="cbCategory_SelectionChanged" Margin="0,30,0,20"/>
+            <TextBox Height="50" Text="{Binding DishSostav}"/>
+        </UniformGrid>
+
+        <Image x:Name="imgPhoto" Source="{Binding DishPhoto, TargetNullValue={StaticResource NoPicture}}" Grid.Column="1" Height="59" Width="126" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="imageEditClick"/>
+        <UniformGrid Rows="5">
+            <TextBlock Style="{StaticResource normalText}" Text="Фото" VerticalAlignment="Top" Height="50" FontSize="25"/>
+            <TextBlock Style="{StaticResource normalText}" Text="Наименование" VerticalAlignment="Top" Height="50" FontSize="25"/>
+            <TextBlock Style="{StaticResource normalText}" Text="Цена" VerticalAlignment="Top" Height="50" FontSize="25"/>
+            <TextBlock Style="{StaticResource normalText}" Text="Категория" VerticalAlignment="Top" Height="50" FontSize="25"/>
+            <TextBlock Style="{StaticResource normalText}" Text="Состав" VerticalAlignment="Top" Height="50" FontSize="25"/>
+
+        </UniformGrid>
+        <Button Style="{StaticResource button}" Grid.Row="1" Grid.Column="1" Content="Save" Click="Button_SaveClick" Height="30"/>
+    </Grid>
+</Window>

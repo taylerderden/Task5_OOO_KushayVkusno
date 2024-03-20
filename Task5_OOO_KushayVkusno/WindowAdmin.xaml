@@ -1,0 +1,62 @@
+﻿<Window x:Class="Task5_OOO_KushayVkusno.WindowAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task5_OOO_KushayVkusno"
+        mc:Ignorable="d"
+        Title="WindowAdmin" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="174*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="2">
+            <Button x:Name="btnDishAdd" Width="200" Height="30" Content="Добавить блюдо" Click="btnDishAdd_Click"/>
+            <Button x:Name="btnOrders" Width="200" Height="30" Content="Заказы" Click="btnOrders_Click"/>
+        </UniformGrid>
+
+        <ListView Grid.Row="1" Name="lvDish">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="500"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Image Source="{Binding DishPhoto, TargetNullValue={StaticResource NoPicture}}" Width="200" Height="150"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <StackPanel>
+                                <TextBlock Text="Название: " FontSize="15">
+                                    <Run Text="{Binding DishName}"/>
+                                </TextBlock>
+                                <TextBlock Text="Цена: " FontSize="15">
+                                    <Run Text="{Binding DishPrice}"/>
+                                </TextBlock>
+                                <TextBlock Text="Категория: " FontSize="15">
+                                    <Run Text="{Binding CategoryIdCategoryNavigation.CategoryName}"/>
+                                </TextBlock>
+                                <TextBlock Text="Описание: " FontSize="15" TextWrapping="Wrap">
+                                    <Run Text="{Binding DishSostav}"/>
+                                </TextBlock>
+                                <UniformGrid Columns="2">
+                                    <Button Content="Delete" Margin="5" FontSize="20" Click="Button_DelClick"/>
+                                    <Button Content="Update" Margin="5" FontSize="20" Click="Button_UpdateClick"/>
+                                </UniformGrid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <UniformGrid Columns="3" Grid.Row="2">
+            <TextBox x:Name="tbSearch" Width="200" Height="30" TextChanged="tbSearch_TextChanged" />
+            <ComboBox x:Name="cbSort" Width="200" Height="30" SelectionChanged="cbSortChanged"/>
+            <ComboBox x:Name="cbFiltr" Width="200" Height="30" SelectionChanged="cbFiltrChanged" SelectedItem="{Binding Category}" DisplayMemberPath="CategoryName"/>
+        </UniformGrid>
+    </Grid>
+</Window>

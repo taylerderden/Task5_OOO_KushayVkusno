@@ -1,0 +1,33 @@
+﻿<Application x:Class="Task5_OOO_KushayVkusno.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Task5_OOO_KushayVkusno"
+             StartupUri="AuthorizationWindow.xaml">
+    <Application.Resources>
+        <BitmapImage x:Key="NoPicture" UriSource="\Resources\NoPicture.png"/>
+
+        <Style x:Key="titleText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontFamily" Value="ComicSans"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FF2BAEE5"/>
+        </Style>
+
+        <Style x:Key="normalText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="LineHeight" Value="28"/>
+            <Setter Property="FontFamily" Value="ComicSans"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FF2BAEE5"/>
+        </Style>
+
+        <Style x:Key="button" TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Background" Value="#FFA9F6F4"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+    </Application.Resources>
+</Application>
